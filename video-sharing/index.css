@@ -16,8 +16,9 @@
 }
 .nav-items-container{
     display: flex;
+    border: 2px solid red;
     /* justify-content: space-evenly; */
-    /* width: 100%; */
+    width: 50%;
     background-color: #333;
 
 }
