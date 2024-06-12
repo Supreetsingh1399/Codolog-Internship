@@ -5,7 +5,7 @@
 }
 .header-container{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: #333;
     color: #fff;
@@ -16,11 +16,8 @@
 }
 .nav-items-container{
     display: flex;
-    flex-wrap: nowrap;
-    gap: 10px;  
-    justify-content: space-evenly;
-    width: 100%;
-    /* padding: 10px 0; */
+    /* justify-content: space-evenly; */
+    /* width: 100%; */
     background-color: #333;
 
 }
@@ -32,7 +29,7 @@
 .nav-sub-items{
     display: flex;
     list-style-type: none;
-    /* margin-right: auto; */
+    margin-right: 40px;
 }
 .nav-sub-items a{
     text-decoration: none;
