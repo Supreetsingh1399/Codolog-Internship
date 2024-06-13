@@ -35,14 +35,11 @@
 
 @media (max-width: 800px) {
     .nav-sub-items a {
-        font-size: 0.9rem !important;
+        font-size: 1rem !important;
         color: black;
     }
-    .nav-items {
-        justify-content: center;
-    }
     .nav-sub-items {
-        margin-right: 0px;
+        margin-right: 0px !important;
     }
     .logo-image {
     width: 100px;
