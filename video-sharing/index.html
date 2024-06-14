@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Website</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="header.css">
+    <script src="https://kit.fontawesome.com/9168a550ec.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -22,7 +23,22 @@
                 <li class="nav-sub-items"><a href="#">About</a></li>
             </ul>
         </nav>
+       <div class="dropdown-container">    
+            <button class="dropdown-button" onclick="toggleDropdown()">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="navbar-dropdown-list">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Videos</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Upload</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+             </div>
+
     </header>
+    <script src="header.js"></script>
 </body>
 
 </html>
