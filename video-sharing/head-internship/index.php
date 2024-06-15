@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header class="header-container">
+    <div class="header-container">
         <div class="logo">
             <img class="logo-image" src="Media/logo.png" alt="Website Logo">
         </div>
@@ -23,7 +23,12 @@
                 <li class="nav-sub-items"><a href="#">About</a></li>
             </ul>
         </nav>
-       <div class="dropdown-container">    
+        <div class="profile">
+            <button class="profile-btn"><i class="fa-solid fa-user"></i></button>
+            <p>Sign in</p>
+
+        </div>
+        <div class="dropdown-container">
             <button class="dropdown-button" onclick="toggleDropdown()">
                 <i class="fa-solid fa-bars"></i>
             </button>
@@ -35,10 +40,15 @@
                     <li><a href="#">Upload</a></li>
                     <li><a href="#">About</a></li>
                 </ul>
-             </div>
+            </div>
+        </div>
+        <!-- Php code starts from here -->
+        <?php
+        ?>
+        <!-- Php code ends here -->
 
-    </header>
-    <script src="header.js"></script>
+        <!-- javascript linking below -->
+        <script src="header.js"></script>
 </body>
 
 </html>

@@ -47,12 +47,13 @@
 }
 
 /* Dropdown menu */
+
 .dropdown-container {
     display: none;
     position: relative;
-    top: 5px;
-    right: 0;
-    margin-inline: 30px;
+    top: 2px;
+    right: 0px;
+    margin-right: 30px;
     transition: all 3s;
 }
 .dropdown-container button {
@@ -71,7 +72,7 @@
     background-color: rgb(129, 129, 129);
     border-radius: 5px;
     top: 45px;
-    right: 0;
+    right: 0px;
     transition: all 3s;
 }
 .navbar-dropdown-list ul {
@@ -106,8 +107,29 @@
 .navbar-dropdown-list a:hover {
     color: white;
 }
+/* Profile button */
+.profile-btn {
+    margin-left: 5px;
+    margin-right: 10px;
+    padding: 10px;
+    font-size: 1.5rem;
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+.profile{   
+    right: 10px;
+    position: absolute;
+}
+.profile-btn:hover {
+    border: 1px solid #aaa3a3;
+    color: #aaa3a3;
+}
 
 /* animation for dropdown menu */
+
 @keyframes background-fill {
     0% {
         background-position: 0% 50%;
