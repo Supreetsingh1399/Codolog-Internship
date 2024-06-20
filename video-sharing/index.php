@@ -23,11 +23,12 @@
                 <li class="nav-sub-items"><a href="#">About</a></li>
             </ul>
         </nav>
+        <!-- sign in button -->
         <div class="profile">
-            <button class="profile-btn"><i class="fa-solid fa-user"></i></button>
+            <button class="profile-btn" onclick="window.location.href='sign-in.php'"><i class="fa-solid fa-user"></i></button>
             <p>Sign in</p>
-
         </div>
+        <!-- toggle button -->
         <div class="dropdown-container">
             <button class="dropdown-button" onclick="toggleDropdown()">
                 <i class="fa-solid fa-bars"></i>
@@ -43,12 +44,14 @@
             </div>
         </div>
         <!-- Php code starts from here -->
-        <?php
-        ?>
+       
         <!-- Php code ends here -->
 
         <!-- javascript linking below -->
         <script src="header.js"></script>
+        <?php
+        include('footer.php');
+        ?>
 </body>
 
 </html>

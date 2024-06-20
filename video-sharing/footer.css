@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    position: fixed;
+    bottom: 0; /* Change this to 'fixed' if you want the footer to stick to the bottom of the viewport */
+    width: 100%;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ddd;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 6px;
+}
+
+.footer-list li {
+    text-align: left;
+    margin: 0 10px;
+}
+
+.footer-sections {
+    margin: 10px;
+    display: block;
+    border-left: 2px solid gray;
+    padding-left: 10px;
+    position: relative;
+}
+
+.help {
+    padding-bottom: 50px;
+}
+.help h2{
+    padding: 4px;
+}
+.about h2{
+    padding: 4px;
+}
+.about{
+    padding-bottom: 20px;
+}
