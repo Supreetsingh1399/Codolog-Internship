@@ -8,13 +8,13 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 50px 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     position: fixed;
-    bottom: 0; /* Change this to 'fixed' if you want the footer to stick to the bottom of the viewport */
+    bottom: 0;
     width: 100%;
 }
 

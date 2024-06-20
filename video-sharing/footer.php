@@ -12,7 +12,7 @@
     <footer>
         <section class="footer-sections about">
             <h2>About us</h2>
-            <p><a href="contact.html">Contact Us</a></p>
+            <p><a href="contact.php">Contact Us</a></p>
             <p><a href="terms.html">Terms of Service</a></p>
             <p><a href="privacy.html">Privacy Policy</a></p>
         </section>
@@ -32,7 +32,7 @@
         <p>© 2024 Video Sharing</p>
     </footer>
     <?php
-    
+    echo "This is the footer";
     ?>
 </body>
 
