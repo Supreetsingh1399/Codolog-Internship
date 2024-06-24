@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Footer</title>
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="../footer/footer.css">
 </head>
 
 <body>
@@ -32,7 +32,6 @@
         <p>© 2024 Video Sharing</p>
     </footer>
     <?php
-    echo "This is the footer";
     ?>
 </body>
 

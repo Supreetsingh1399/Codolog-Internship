@@ -12,7 +12,7 @@
 <body>
     <div class="header-container">
         <div class="logo">
-            <img class="logo-image" src="Media/logo.png" alt="Website Logo">
+            <img class="logo-image" src="../Media/logo.png" alt="Website Logo">
         </div>
         <nav class="nav-items-container">
             <ul class="nav-items">
@@ -25,7 +25,7 @@
         </nav>
         <!-- sign in button -->
         <div class="profile">
-            <button class="profile-btn" onclick="window.location.href='sign-in.php'"><i class="fa-solid fa-user"></i></button>
+            <button class="profile-btn" onclick="window.location.href='../sign/sign-in.php'"><i class="fa-solid fa-user"></i></button>
             <p>Sign in</p>
         </div>
         <!-- toggle button -->
@@ -50,7 +50,7 @@
         <!-- javascript linking below -->
         <script src="header.js"></script>
         <?php
-        include('footer.php');
+        include('../footer/footer.php');
         ?>
 </body>
 
