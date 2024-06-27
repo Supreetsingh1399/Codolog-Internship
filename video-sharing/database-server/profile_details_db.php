@@ -40,6 +40,7 @@ if (isset($_POST['submit'])) {
     // Check if email and password are for login or registration
     if (isset($_POST['username'])) { // This means it's a registration attempt
         $username = $_POST['username'];
+        $profile_picture = $_FILES['profile_picture'];
         // Hash the password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -55,9 +56,9 @@ if (isset($_POST['submit'])) {
             header('Location: ../sign/sign-up.php');
             exit();
         } else {
-            $insertQuery = "INSERT INTO profile_details(username, email, password) VALUES (?, ?, ?)";
+            $insertQuery = "INSERT INTO profile_details(username, email, password,profile_picture) VALUES (?, ?, ?,?)";
             $stmt = mysqli_prepare($conn, $insertQuery);
-            mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPassword);
+            mysqli_stmt_bind_param($stmt, "ssss", $username, $email, $hashedPassword,$profile_picture);
             mysqli_stmt_execute($stmt);
 
             if (mysqli_stmt_affected_rows($stmt) > 0) {
@@ -100,11 +101,11 @@ if (isset($_POST['submit'])) {
 
         if ($row && password_verify($password, $row['password'])) {
             $_SESSION['email'] = $row['email'];
-            header("Location: ../header/index.php");
+            header("Location: ../head/index.php");
             exit();
         } else {
             echo "Incorrect email or password.";
         }
     }
 }
-?>
+?> 

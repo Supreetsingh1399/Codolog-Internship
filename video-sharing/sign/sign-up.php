@@ -26,8 +26,8 @@ if (isset($_SESSION['error_message'])) {
         }
 
         .signup-form {
-            width: 350px;
-            height: 500px;
+            width: 360px;
+            height: 560px;
             margin: 30px auto;
             padding: 20px;
             background-color: #fff;
@@ -75,7 +75,8 @@ if (isset($_SESSION['error_message'])) {
             <input type="email" id="email" name="email" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-
+            <label for="profile_picture" id="profile_picture" name="profile_picture" required></label>
+            <input type="file" id="profile_picture" name="profile_picture" required>
             <!-- Google reCAPTCHA widget -->
             <div class="g-recaptcha" data-sitekey="6LdEH_8pAAAAANm6y8-m4mLGtRaGU_mtNyTAAPVW"></div>
 

@@ -24,7 +24,7 @@
     display: flex;
     justify-content: space-evenly;
     background-color: #333;
-    position: relative; 
+    position: relative;
     flex-wrap: wrap;
 }
 
@@ -34,12 +34,14 @@
     padding: 10px;
     flex: 1 1 200px;
 }
+
 .nav-sub-items {
     display: flex;
     list-style-type: none;
     margin-right: 40px;
-   
+
 }
+
 .nav-sub-items a {
     text-decoration: none;
     color: #fff;
@@ -57,6 +59,7 @@
     margin-right: 30px;
     transition: all 3s;
 }
+
 .dropdown-container button {
     width: 40px;
     aspect-ratio: 1/1;
@@ -67,6 +70,12 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.dropdown-button {
+
+    transition: all 3s;
+}
+
 .navbar-dropdown-list {
     display: none;
     position: absolute;
@@ -76,42 +85,50 @@
     right: 0px;
     transition: all 3s;
 }
+
 .navbar-dropdown-list ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
+
 .navbar-dropdown-list ul li {
     text-decoration: none;
     text-align: center;
     padding: 10px;
     border: 1px solid rgba(0, 0, 0, 0.233);
 }
+
 .navbar-dropdown-list ul li:hover:has(a) {
     background-image: linear-gradient(to right, white, black);
     background-size: 200% auto;
     animation: background-fill 200ms linear forwards;
     cursor: pointer;
 }
+
 .navbar-dropdown-list ul li:first-child {
     border-radius: 5px 5px 0px 0px;
 }
+
 .navbar-dropdown-list ul li:last-child {
     border-radius: 0px 0px 5px 5px;
 }
+
 .navbar-dropdown-list a {
     text-decoration: none;
     margin: 0;
     padding: 10px;
     color: black;
 }
+
 .navbar-dropdown-list a:hover {
     color: white;
 }
+
 /* Profile button */
 .profile-btn {
-    margin-left: 5px;
-    margin-right: 10px;
+    /* margin-left: auto; */
+    margin-right: 30px;
     padding: 10px;
     font-size: 1.5rem;
     border: 1px solid black;
@@ -119,26 +136,78 @@
     background-color: #333;
     color: white;
     cursor: pointer;
+    z-index: 3;
 }
-.profile{   
-    right: 10px;
-    position: absolute;
+
+.profile-details {
+    right: 0px;
+    width: 250px;
+    position: fixed;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    opacity: 0.9;
+    padding: 10px;
+    top: 110px;
+    height: 350px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   display: none;
+    margin: auto;
+    text-align: center;
+    animation: slide-left 1s forwards;
 }
+#upload-image{
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #aaa3a3;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+.sign-in-btn {
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #aaa3a3;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+.sign-out-btn {
+    padding: 10px;
+    /* margin: 10px; */
+    border-radius: 5px;
+    border: 1px solid #aaa3a3;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+.p-text{
+    color: #333;
+}
+
+
 .profile-btn:hover {
     border: 1px solid #aaa3a3;
     color: #aaa3a3;
 }
 
-/* animation for dropdown menu */
-
-@keyframes background-fill {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
+/* video-sharing-text  */
+#video-sharing-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    font-size: 1.5rem;
+    display: none;
 }
+
 
 
 /* media queries for different screen sizes */
@@ -146,16 +215,62 @@
     .nav-sub-items {
         margin-right: 0px !important;
     }
+
     .logo-image {
-    width: 100px;
-    aspect-ratio: 1;
+        width: 100px;
+    }
+
+    .header-container {
+        height: 100px;
+    }
+
+    .profile-details {
+        width: 200px;
+        top: 100px;
+        height: 250px;
+    }
 }
+
 @media screen and (max-width: 600px) {
     .dropdown-container {
         display: block;
     }
+
+    #video-sharing-text {
+        display: block;
+    }
+
     .nav-items-container {
         display: none;
     }
+
+    .logo-image {
+        display: none;
+    }
 }
+/* keyframes */
+/* left to right slide */
+@keyframes slide-left {
+    from {
+        transform: translateX(100%);
+        /* Start from 100% of its width to the left */
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0%);
+        /* End at its starting position */
+        opacity: 0.9;
+    }
+}
+/* animation for dropdown menu */
+
+@keyframes background-fill {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
 }
