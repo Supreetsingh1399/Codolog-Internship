@@ -21,6 +21,3 @@ function showProfileBox() {
         profileBox.style.display = "none";
     }
 }
-
-
-// Fetch the user details

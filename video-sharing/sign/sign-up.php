@@ -62,6 +62,15 @@ if (isset($_SESSION['error_message'])) {
             text-align: center;
             margin-top: 20px;
         }
+        .already-signed-in {
+            text-align: center;
+            margin-top: 5px;
+            a{
+                text-decoration: none;
+                color: blue;
+            
+            }
+        }
     </style>
 </head>
 
@@ -75,13 +84,14 @@ if (isset($_SESSION['error_message'])) {
             <input type="email" id="email" name="email" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            <label for="profile_picture" id="profile_picture" name="profile_picture" required></label>
-            <input type="file" id="profile_picture" name="profile_picture" required>
             <!-- Google reCAPTCHA widget -->
             <div class="g-recaptcha" data-sitekey="6LdEH_8pAAAAANm6y8-m4mLGtRaGU_mtNyTAAPVW"></div>
 
             <input type="submit" name="submit" value="Sign Up">
             <input type="reset" value="Reset">
+            <?php
+             echo "<p class='already-signed-in'>Already have an account? <a href='../sign/sign-in.php'>Sign In</a></p>" ;
+            ?>
         </form>
     </div>
     <?php if (isset($_SESSION['error'])) : ?>

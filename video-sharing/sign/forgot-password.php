@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +19,7 @@
 
         .forgot-password-form {
             width: 350px;
-            height: 300px;
+            height: 350px;
             margin: 50px auto;
             padding: 20px;
             background-color: #fff;
@@ -42,6 +43,11 @@
         .sign-in-text {
             text-align: center;
             margin-bottom: 20px;
+
+            a {
+                text-decoration: none;
+                color: blue;
+            }
         }
 
         .error {
@@ -51,19 +57,40 @@
         .success {
             color: green;
         }
-        h2{
+
+        h2 {
             text-align: center;
             margin-bottom: 50px;
             margin-top: 10px;
         }
+        .g-recaptcha {
+            margin-top: 10px;
+            margin-left: 3px;
+        }
+        .sign-in-account {
+            text-align: center;
+            margin-top: 10px;
+            a{
+                text-decoration: none;
+                color: blue;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="forgot-password-form">
         <h2>Forgot Password</h2>
-        <form action="forgot-password.php" method="post">
+        <form action="../database-server/password_reset_db.php" method="post">
             <input type="email" name="email" placeholder="Email" required>
+            <!-- Google reCAPTCHA widget -->
+            <div class="g-recaptcha" data-sitekey="6LdEH_8pAAAAANm6y8-m4mLGtRaGU_mtNyTAAPVW"></div>
+
             <input type="submit" name="submit" value="Submit">
+            <?php
+            echo "<p class='sign-in-account'>Already have an account? <a href='sign-in.php'>Sign in</a></p> "
+            ?>
+
         </form>
     </div>
     <div class="error">
@@ -82,10 +109,8 @@
         }
         ?>
     </div>
-    <div class="sign-in-text">
-        <p>Already have an account? <a href="sign-in.php">Sign in</a></p>
-    </div>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
+
 </body>
+
 </html>

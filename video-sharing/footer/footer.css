@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 footer {
     background-color: #333;
     color: white;
@@ -13,8 +12,8 @@ footer {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    position: fixed;
-    bottom: 0;
+    position: relative;
+    bottom: 0;  
     width: 100%;
 }
 

@@ -51,6 +51,10 @@ session_start(); // Ensure the session is started
         .sign-up-text {
             text-align: center;
             margin-top: 10px;
+            a{
+                text-decoration: none;
+                color: blue;
+            }
         }
 
         .g-recaptcha {

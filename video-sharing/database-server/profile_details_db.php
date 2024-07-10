@@ -6,6 +6,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 // Include the database connection
 require '../database-server/db_connect.php';
+$userId = mysqli_insert_id($conn);
 
 // Secret key for reCAPTCHA
 $secretKey = "6LdEH_8pAAAAAGexJqIL6SZMrPm2v8GIcoD8XyNK";
@@ -40,7 +41,7 @@ if (isset($_POST['submit'])) {
     // Check if email and password are for login or registration
     if (isset($_POST['username'])) { // This means it's a registration attempt
         $username = $_POST['username'];
-        $profile_picture = $_FILES['profile_picture'];
+        // $profile_picture = $_FILES['profile_picture'];
         // Hash the password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
@@ -55,17 +56,16 @@ if (isset($_POST['submit'])) {
             $_SESSION['error_message'] = "Email already exists.";
             header('Location: ../sign/sign-up.php');
             exit();
-        } else {
-            $insertQuery = "INSERT INTO profile_details(username, email, password,profile_picture) VALUES (?, ?, ?,?)";
+        } else {    // Email does not exist, insert the new user
+            $insertQuery = "INSERT INTO profile_details(username, email, password) VALUES (?, ?, ?)";
             $stmt = mysqli_prepare($conn, $insertQuery);
-            mysqli_stmt_bind_param($stmt, "ssss", $username, $email, $hashedPassword,$profile_picture);
+            mysqli_stmt_bind_param($stmt, "sss", $username, $email, $hashedPassword);
             mysqli_stmt_execute($stmt);
-
-            if (mysqli_stmt_affected_rows($stmt) > 0) {
-                // Get the last inserted ID to use as part of the table name
-                $userId = mysqli_insert_id($conn);
-                $videosTableName = "user_videos_" . $userId;
             
+            if (mysqli_stmt_affected_rows($stmt) > 0) {
+                // Get the last inserted ID to use as part of the file name
+                $userId = mysqli_insert_id($conn);
+
                 // SQL to create a new table for the user's videos
                 $createVideosTableQuery = "CREATE TABLE `$videosTableName` (
                     `id` INT(11) NOT NULL AUTO_INCREMENT,
@@ -74,9 +74,12 @@ if (isset($_POST['submit'])) {
                     `upload_date` DATETIME NOT NULL,
                     PRIMARY KEY (`id`)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
-            
+
                 if (mysqli_query($conn, $createVideosTableQuery)) {
-                    // Table created successfully, redirect to sign-in page
+                    // Table created successfully, set session variables
+
+
+                    // Redirect to sign-in page
                     header('Location: ../sign/sign-in.php');
                     exit();
                 } else {
@@ -101,6 +104,7 @@ if (isset($_POST['submit'])) {
 
         if ($row && password_verify($password, $row['password'])) {
             $_SESSION['email'] = $row['email'];
+
             header("Location: ../head/index.php");
             exit();
         } else {
@@ -108,4 +112,30 @@ if (isset($_POST['submit'])) {
         }
     }
 }
-?> 
+$email = 'not found'; // Default value for email
+$username = 'Username: not found'; // Default value for username
+// Check if email is provided via POST
+if (isset($_SESSION['email'])) {
+    $email = $_SESSION['email'];
+    // $username = $_SESSION['username'];
+
+    // Prepare the SQL statement
+    $sql = "SELECT email, username FROM profile_details WHERE email = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+        $email = $row['email'];
+        $username = 'Welcome,' . $row['username'];
+        // Success, proceed with $email and $username
+    } else {
+        echo "Error fetching user details.";
+    }
+} else {
+    echo "User not logged in";
+}
+// Close the connection
+// mysqli_close($conn);
+?>
